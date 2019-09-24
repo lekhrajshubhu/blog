@@ -10,4 +10,8 @@ class ContactController extends Controller
     {
         return view('contact.index');
     }
+    public function dashboard()
+    {
+        return view('backend.contact.index');
+    }
 }

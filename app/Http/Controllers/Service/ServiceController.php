@@ -10,4 +10,9 @@ class ServiceController extends Controller
     {
         return view('service.index');
     }
+
+    public function dashboard()
+    {
+        return view('backend.service.index');
+    }
 }

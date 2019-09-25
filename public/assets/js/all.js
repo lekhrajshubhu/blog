@@ -256,7 +256,7 @@ $(document).on('click','.menu-item',function() {
 		url: url,
 		method: 'GET',
 		beforeSend:function() {
-			console.log("beforeSend");
+			// console.log("beforeSend");
 		},
 
 		success: function(resp) {

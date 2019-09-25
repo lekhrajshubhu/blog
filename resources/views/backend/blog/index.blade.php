@@ -1,4 +1,16 @@
-<div class="bg-success ">
-	
-	<h2 class="text-white"> This is Blog backend</h2>
+<div>
+	<!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+  Add New Blog
+</button>
+
+
+
+
+
+@include('backend.blog.blog-add')
+
+@include('backend.blog.table')
+
+
 </div>

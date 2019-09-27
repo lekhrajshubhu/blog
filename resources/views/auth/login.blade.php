@@ -1,7 +1,8 @@
-@extends('layouts.app')
+@extends('master.layout')
 
-@section('content')
-<div class="container">
+@section('main-body')
+@dump(session('error'))
+<div class="container my-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -15,11 +16,11 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @isset(session('error')['email']) is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('email')
+                                @isset(session('error')['email'])
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        <strong>{{ session('error')['email'] }}</strong>
                                     </span>
                                 @enderror
                             </div>

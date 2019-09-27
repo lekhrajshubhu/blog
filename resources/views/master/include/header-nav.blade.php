@@ -23,6 +23,12 @@
                 </ul>
               </li>
               <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+              @guest
+              <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+              @else
+              <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+              @endif
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-social">
               <li><a href="#"><i class="ti-facebook"></i></a></li>

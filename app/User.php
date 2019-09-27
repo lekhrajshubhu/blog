@@ -36,4 +36,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    protected $dates = ['created_at'];
+
+    protected $appends = ['is_verified'];
+
+
+    public function getIsVerified()
+    {
+        return $this->attributes['email'];
+    }
 }

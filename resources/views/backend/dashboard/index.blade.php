@@ -49,8 +49,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-12">
-                <div>
-                    <h2 class="head">Welcome to Dashboard</h2>
+                <div class="clearfix">
+                    <h2 class="head">
+                        Welcome to Dashboard
+
+                        {{ Auth::user()->name  }}
+
+                        <button type="button" class="float-right" 
+                        onclick="$('#logout-form').submit();"
+                        >Log Out</button>
+                    </h2>
+
+                    <form action="/logout" method="post" id="logout-form">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    </form>
                 </div>
             </div>
         </div>

@@ -20,17 +20,21 @@ class BlogController extends Controller
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required',
+        $rule = [
+            'title' => 'required|min:10|unique:blogs,title',
             'body' => 'required',
+        ];
+
+        // $request->validate($rule);
+
+        // $this->validate($request, $rule);
+
+        $blog = Blog::create([
+            'title' => $request->title,
+            'body' => $request->body,
         ]);
 
-        if ($validatedData) {
-            Blog::create([
-                'title' => $request->title,
-                'body' => $request->body,
-            ]);
-            // DB::table('blogs')->insert($request->all());
-        }
+        return response(['data' => $blog, 'message' => 'Blog created successfully.']);
+
     }
 }
